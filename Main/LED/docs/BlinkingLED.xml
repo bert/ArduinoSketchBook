@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Blinking LED.</title>
+
+    <author>
+      <firstname>Bert</firstname>
+
+      <surname>Timmerman</surname>
+
+      <affiliation>
+        <orgname><trademark>Me, organised ???</trademark></orgname>
+      </affiliation>
+    </author>
+  </articleinfo>
+
+  <section>
+    <title>Blinking LED.</title>
+
+    <para>This example shows the simplest thing you can do with an Arduino to
+    see physical output: it blinks a LED.</para>
+  </section>
+
+  <section>
+    <title>Hardware Required.</title>
+
+    <para/>
+
+    <itemizedlist>
+      <listitem>
+        <para>Arduino Board</para>
+      </listitem>
+
+      <listitem>
+        <para>LED</para>
+      </listitem>
+
+      <listitem>
+        <para>220 Ohm resistor</para>
+      </listitem>
+
+      <listitem>
+        <para>hook-up wire</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Circuit.</title>
+
+    <para>To build the circuit, attach a 220-ohm resistor to pin 13.</para>
+
+    <para>Then attach the long leg of an LED (the positive leg, called the
+    anode) to the resistor.</para>
+
+    <para>Attach the short leg (the negative leg, called the cathode) to
+    ground.</para>
+
+    <para>Then plug your Arduino board into your computer, start the Arduino
+    program, and load and run the code.</para>
+
+    <para>Most Arduino boards already have an LED attached to pin 13 on the
+    board itself.</para>
+
+    <para>If you run this example with no hardware attached, you should see
+    that LED blink. .</para>
+
+    <para><figure>
+        <title>Schematic.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="BlinkingLED_schematic.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure><figure>
+        <title>Wiring.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="BlinkingLED_bb.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+</article>
