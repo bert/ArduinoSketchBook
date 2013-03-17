@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Liquid Crystal Display (16 characters x 2 rows).</title>
+
+    <author>
+      <firstname>Bert</firstname>
+
+      <surname>Timmerman</surname>
+
+      <affiliation>
+        <orgname><trademark>Me, organised ???</trademark></orgname>
+      </affiliation>
+    </author>
+  </articleinfo>
+
+  <section>
+    <title>Liquid Crystal - "hello world!".</title>
+
+    <para>The LiquidCrystal library allows you to control LCD displays that
+    are compatible with the Hitachi HD44780 driver.</para>
+
+    <para>There are many LCD displays out there, and you can usually tell them
+    by the 16-pin interface.</para>
+
+    <para>This example sketch prints "Hello World!" to the LCD and shows the
+    time in seconds since the Arduino was reset.</para>
+
+    <figure>
+      <title>Output of the sketch on a 2x16 LCD</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="../../../../../../sketchbook/Main/LCD16x2/docs/LCD16x2_photo.png"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>The LCDs have a parallel interface, meaning that the microcontroller
+    has to manipulate several interface pins at once to control the
+    display.</para>
+
+    <para>The interface consists of the following pins:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>A register select (RS) pin that controls where in the LCD's
+        memory you're writing data to.</para>
+
+        <para>You can select either the data register, which holds what goes
+        on the screen, or an instruction register, which is where the LCD's
+        controller looks for instructions on what to do next.</para>
+      </listitem>
+
+      <listitem>
+        <para>A Read/Write (R/W) pin that selects reading mode or writing
+        mode.</para>
+      </listitem>
+
+      <listitem>
+        <para>An Enable pin that enables writing to the registers.</para>
+      </listitem>
+
+      <listitem>
+        <para>8 data pins (D0 -D7). The states of these pins (high or low) are
+        the bits that you're writing to a register when you write, or the
+        values you're reading when you read.</para>
+      </listitem>
+
+      <listitem>
+        <para>A display contrast pin (Vo).</para>
+      </listitem>
+
+      <listitem>
+        <para>Power supply pins (+5V and Gnd) and LED Backlight (Bklt+ and
+        BKlt-) pins that you can use to power the LCD, control the display
+        contrast, and turn on and off the LED backlight, respectively.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>The process of controlling the display involves putting the data
+    that form the image of what you want to display into the data registers,
+    then putting instructions in the instruction register.</para>
+
+    <para>The LiquidCrystal Library simplifies this for you so you don't need
+    to know the low-level instructions.</para>
+
+    <para>The Hitachi-compatible LCDs can be controlled in two modes: 4-bit or
+    8-bit.</para>
+
+    <para>The 4-bit mode requires seven I/O pins from the Arduino, while the
+    8-bit mode requires 11 pins.</para>
+
+    <para>For displaying text on the screen, you can do most everything in
+    4-bit mode, so example shows how to control a 2x16 LCD in 4-bit
+    mode.</para>
+  </section>
+
+  <section>
+    <title>Hardware Required.</title>
+
+    <para/>
+
+    <itemizedlist>
+      <listitem>
+        <para>Arduino Board</para>
+      </listitem>
+
+      <listitem>
+        <para>LCD Screen (compatible with Hitachi HD44780 driver)</para>
+      </listitem>
+
+      <listitem>
+        <para>10k Potentiometer</para>
+      </listitem>
+
+      <listitem>
+        <para>breadboard</para>
+      </listitem>
+
+      <listitem>
+        <para>hook-up wire</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Circuit.</title>
+
+    <para>To wire your LCD screen to your Arduino, connect the following
+    pins:<itemizedlist>
+        <listitem>
+          <para>LCD RS pin to Arduino digital pin 12</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD Enable pin to Arduino digital pin 11</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D4 pin to Arduino digital pin 5</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D5 pin to Arduino digital pin 4</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D6 pin to Arduino digital pin 3</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D7 pin to Arduino digital pin 2</para>
+        </listitem>
+
+        <listitem>
+          <para>fixed terminals of the 10K pot to +5V and GND</para>
+        </listitem>
+
+        <listitem>
+          <para>wiper of the 10K pot (output) to LCD screens VO pin
+          (pin3)</para>
+        </listitem>
+      </itemizedlist></para>
+
+    <para><figure>
+        <title>Schematic.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="LCD16x2_schematic.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure><figure>
+        <title>Wiring.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="LCD16x2_bb.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+</article>
