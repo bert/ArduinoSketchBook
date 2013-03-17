@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Fading LED.</title>
+
+    <author>
+      <firstname>Bert</firstname>
+
+      <surname>Timmerman</surname>
+
+      <affiliation>
+        <orgname><trademark>Me, organised ???</trademark></orgname>
+      </affiliation>
+    </author>
+  </articleinfo>
+
+  <section>
+    <title>Fading LED.</title>
+
+    <para>Demonstrates the use of analog output (Pulse Width Modulation (PWM))
+    to fade an LED.</para>
+
+    <para>PWM is a technique for getting an analog-like behavior from a
+    digital output by switching it off and on very fast.</para>
+  </section>
+
+  <section>
+    <title>Hardware Required.</title>
+
+    <para/>
+
+    <itemizedlist>
+      <listitem>
+        <para>Arduino Board</para>
+      </listitem>
+
+      <listitem>
+        <para>LED</para>
+      </listitem>
+
+      <listitem>
+        <para>220 Ohm resistor</para>
+      </listitem>
+
+      <listitem>
+        <para>breadboard</para>
+      </listitem>
+
+      <listitem>
+        <para>hook-up wire</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Circuit.</title>
+
+    <para>.</para>
+
+    <para><figure>
+        <title>Schematic.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="FadingLED_schematic.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure><figure>
+        <title>Wiring.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="FadingLED_bb.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+</article>
