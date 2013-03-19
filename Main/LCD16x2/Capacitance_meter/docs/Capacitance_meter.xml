@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Capacitance Meter and RC Time Constants.</title>
+
+    <author>
+      <firstname>Bert</firstname>
+
+      <surname>Timmerman</surname>
+
+      <affiliation>
+        <orgname><trademark>Me, organised ???</trademark></orgname>
+      </affiliation>
+    </author>
+  </articleinfo>
+
+  <section>
+    <title>Capacitance Meter and RC Time Constants.</title>
+
+    <para><figure>
+        <title>RC schematic.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="RC_schematic.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure>Overview: A resistor will charge a capacitor in TC seconds,
+    where:</para>
+
+    <para>TC = R * C</para>
+
+    <para>TC = time constant in seconds.</para>
+
+    <para>R = resistance in ohms.</para>
+
+    <para>C = capacitance in farads (1 microfarad [ufd] = .0000001 farad =
+    10^-6 farads ).</para>
+
+    <para>The voltage at 1 Time Constant equals 63.2% of the charging
+    voltage.</para>
+
+    <para>Example: 1 megohm * 1 microfarad = 1 second.</para>
+
+    <para>Example: 10k ohms * 100 microfarad = 1 second.<figure>
+        <title>RC time constant.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="RC_time_constant.jpg" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>.</para>
+  </section>
+
+  <section>
+    <title>Experimental Setup.</title>
+
+    <para>This sketch works because the Arduino pins can be in one of two
+    states, which are electrically very different.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Input State (set with pinMode(pin, INPUT);).</para>
+
+        <para><itemizedlist>
+            <listitem>
+              <para>High Impedance (resistance) - Makes very little demand on
+              the circuit that it is sampling.</para>
+            </listitem>
+
+            <listitem>
+              <para>Good for reading sensors but not lighting LED's.</para>
+            </listitem>
+          </itemizedlist></para>
+      </listitem>
+
+      <listitem>
+        <para>Output State (set with pinMode(pin, OUTPUT);).</para>
+
+        <para><itemizedlist>
+            <listitem>
+              <para>Low Impedance - Can provide 40 mA source (positive
+              voltage), or sink (negative voltage).</para>
+            </listitem>
+
+            <listitem>
+              <para>Good for lighting LED's, driving other circuits - useless
+              for reading sensors.</para>
+            </listitem>
+          </itemizedlist></para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Additionally the pins can be HIGH (+5 volts), to charge the
+    capacitor; or LOW (ground) to discharge the capacitor.<figure>
+        <title>Experimental Setup schematic.</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="Capacitance_meter_schematic.png" width="600"/>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para/>
+  </section>
+
+  <section>
+    <title>Algorithm for the capacitance meter sketch.</title>
+
+    <itemizedlist>
+      <listitem>
+        <para>Set discharge pin to INPUT (so it can't discharge the
+        capacitor).</para>
+      </listitem>
+
+      <listitem>
+        <para>Record the start time with millis().</para>
+      </listitem>
+
+      <listitem>
+        <para>Set charge pin to OUTPUT and make it HIGH.</para>
+      </listitem>
+
+      <listitem>
+        <para>Check the voltage repeatedly in a loop until it gets to 63.2% of
+        total voltage.</para>
+      </listitem>
+
+      <listitem>
+        <para>After the cap is charged, subtract the current time from the
+        start time to find out how long the capacitor took to charge.</para>
+      </listitem>
+
+      <listitem>
+        <para>Divide the Time in seconds by the charging Resistance in ohms to
+        find the Capacitance.</para>
+      </listitem>
+
+      <listitem>
+        <para>Report the value with serial.print.</para>
+      </listitem>
+
+      <listitem>
+        <para>Discharge the capacitor. To do this:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Set the charge pin to Input.</para>
+          </listitem>
+
+          <listitem>
+            <para>Set the discharge pin to OUTPUT and make it LOW.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+
+      <listitem>
+        <para>Read the voltage to make sure the capacitor is fully
+        discharged.</para>
+      </listitem>
+
+      <listitem>
+        <para>Loop and do it again.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Hardware Required.</title>
+
+    <para/>
+
+    <itemizedlist>
+      <listitem>
+        <para>Arduino Board.</para>
+      </listitem>
+
+      <listitem>
+        <para>LCD Screen (compatible with Hitachi HD44780 driver).</para>
+      </listitem>
+
+      <listitem>
+        <para>10k Potentiometer.</para>
+      </listitem>
+
+      <listitem>
+        <para>Breadboard.</para>
+      </listitem>
+
+      <listitem>
+        <para>220 Ohm Resistor.</para>
+      </listitem>
+
+      <listitem>
+        <para>Resistor Under Test (R).</para>
+      </listitem>
+
+      <listitem>
+        <para>Capacitor Under Test (C).</para>
+      </listitem>
+
+      <listitem>
+        <para>Hook-up wire.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Circuit.</title>
+
+    <para>To wire your LCD screen to your Arduino, connect the following
+    pins:<itemizedlist>
+        <listitem>
+          <para>LCD RS pin to Arduino digital pin 12.</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD Enable pin to Arduino digital pin 11.</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D4 pin to Arduino digital pin 5.</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D5 pin to Arduino digital pin 4.</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D6 pin to Arduino digital pin 3.</para>
+        </listitem>
+
+        <listitem>
+          <para>LCD D7 pin to Arduino digital pin 2.</para>
+        </listitem>
+
+        <listitem>
+          <para>fixed terminals of the 10k potentiometer to +5V and
+          GND.</para>
+        </listitem>
+
+        <listitem>
+          <para>wiper of the 10K pot (output) to LCD screens VO pin
+          (pin3).</para>
+        </listitem>
+
+        <listitem>
+          <para>Arduino digital pin 9 to resistor of 220 Ohm (as to discharge
+          the capacitor).</para>
+        </listitem>
+
+        <listitem>
+          <para>Arduino analog 0 pin for measuring capacitor voltage.</para>
+        </listitem>
+
+        <listitem>
+          <para>Arduino digital pin 13 to charge the capacitor.</para>
+        </listitem>
+      </itemizedlist></para>
+  </section>
+</article>
