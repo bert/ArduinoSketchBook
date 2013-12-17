@@ -1,22 +1,38 @@
-/* RCTiming_capacitance_meter
- * Paul Badger 2008
- * Demonstrates use of RC time constants to measure the value of a capacitor 
+/*!
+ * \file Capacitance_meter.pde
+ *
+ * \brief RC Timing capacitance meter.
+ *
+ * \author Paul Badger 2008.
+ *
+ * Demonstrates use of RC time constants to measure the value of a
+ * capacitor.
  *
  * Theory:
- * A capcitor will charge, through a resistor, in one time constant, defined as T seconds where
- * TC = R * C
  *
- * TC = time constant period in seconds
- * R = resistance in ohms
- * C = capacitance in Farads (1 microfarad (uF) = .0000001 F = 10^-6 Farads)
+ * A capcitor will charge, through a resistor, in one time constant,
+ * defined as T seconds where TC = R * C
  *
- * The capacitor's voltage at one time constant is defined as 63.2% of the charging voltage.
+ * TC = time constant period in seconds.
+ *
+ * R = resistance in ohms.
+ *
+ * C = capacitance in Farads (1 microfarad (uF) = .0000001 F
+ * = 10^-6 Farads).
+ *
+ * The capacitor's voltage at one time constant is defined as 63.2% of
+ * the charging voltage.
  *
  * Hardware setup:
- * Test Capacitor between common point and ground (positive side of an electrolytic capacitor to common)
- * Test Resistor between chargePin and common point
- * 220 ohm resistor between dischargePin and common point
- * Wire between common point and analogPin (A/D input)
+ *
+ * Test Capacitor between common point and ground (positive side of an
+ * electrolytic capacitor to common).
+ *
+ * Test Resistor between chargePin and common point.
+ *
+ * 220 ohm resistor between dischargePin and common point.
+ *
+ * Wire between common point and analogPin (A/D input).
  */
 
 #define analogPin 0 // analog pin for measuring capacitor voltage
@@ -73,4 +89,3 @@ loop ()
   }
   pinMode (dischargePin, INPUT); // set discharge pin back to input
 }
-
