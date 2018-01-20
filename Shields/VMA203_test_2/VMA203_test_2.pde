@@ -104,12 +104,12 @@ loop ()
     }
     case btnUP:
     {
-      lcd.noDisplay ();
+      lcd.print ("UP    ");
       break;
     }
     case btnDOWN:
     {
-      lcd.display ();
+      lcd.print ("DOWN  ");
       break;
     }
     case btnSELECT:
