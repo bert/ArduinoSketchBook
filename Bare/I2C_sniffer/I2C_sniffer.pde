@@ -1,5 +1,5 @@
 /*!
- * \file I2C_sniffer.pde
+ * \file Bare/I2C_sniffer/I2C_sniffer.pde
  *
  * \brief Arduino I2C Sniffer.
  *
