@@ -142,7 +142,7 @@ If everything is okay you should see the temperature being measured and showed i
 
 ## Code
 
-[Arduino Temperature Control Library]((https://github.com/milesburton/Arduino-Temperature-Control-Library)
+[Arduino Temperature Control Library](https://github.com/milesburton/Arduino-Temperature-Control-Library)
 
 [Arduino Liquid Crustal I2C Library](https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library)
 
@@ -222,7 +222,9 @@ I got this from reading the Dallas Semiconductor engineering notes on their webs
 
 To set to 12-bit precision:
 
+```
 #define TEMP_12_BIT 0x7F
+```
 
 ---
 
