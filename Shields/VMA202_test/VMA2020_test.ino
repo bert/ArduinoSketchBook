@@ -17,7 +17,7 @@ RTC_DS1307 RTC;
 
 float celsius;
 
-OneWire  ds(8);
+OneWire ds (8);
 /*!< Temperature sensor on pin 8 (a 4.7K resistor is necessary).*/
 
 File dataFile;
