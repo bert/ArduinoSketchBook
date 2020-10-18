@@ -1,6 +1,8 @@
 /*!
  * \file Shields/VMA2020_test/VMA202_test.ino.
  *
+ * \brief Test program for the Velleman VMA202 SD shield.
+ *
  * \author Bert Timmerman <bert.timmerman@xs4all.nl>
  */
 
