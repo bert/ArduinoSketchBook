@@ -1,5 +1,5 @@
 /*
- * \file shields/VMA2020_test/VMA202_test.ino.
+ * \file Shields/VMA2020_test/VMA202_test.ino.
  *
  * \author Bert Timmerman <bert.timmerman@xs4all.nl>
  */
