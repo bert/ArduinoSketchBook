@@ -112,7 +112,7 @@ loop (void)
   {
      Serial.println ("Error opening datalog.txt");
   }
-  delay(900000); /* This will log the temperature every 15 minute.*/
+  delay (900000); /* This will log the temperature every 15 minutes.*/
 }
 
 
@@ -151,7 +151,7 @@ pickUpTemperature ()
   switch (addr[0])
   {
     case 0x10:
-      Serial.println ("Chip = DS18S20"); /* or old DS1820.*/
+      Serial.println ("Chip = DS18S20 or DS1820");
       type_s = 1;
       break;
     case 0x28:
