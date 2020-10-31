@@ -88,8 +88,6 @@ loop (void)
     dataFile.print (now.hour (),DEC);
     dataFile.print (":");
     dataFile.print (now.minute (),DEC);
-    dataFile.print (":");
-    dataFile.print (now.second (),DEC);
     dataFile.print ("  ");
     dataFile.println (celsius);
     dataFile.close ();
@@ -103,8 +101,6 @@ loop (void)
     Serial.print (now.hour (),DEC);
     Serial.print (":");
     Serial.print (now.minute (),DEC);
-    Serial.print (":");
-    Serial.print (now.second (),DEC);
     Serial.print ("  ");
     Serial.print (celsius);
     Serial.println (" # data stored");
