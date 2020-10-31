@@ -1,5 +1,5 @@
 /*!
- * \file Shields/VMA2020_test/VMA202_test.ino.
+ * \file Shields/VMA202_test/VMA202_test.ino.
  *
  * \brief Test program for the Velleman VMA202 SD shield.
  *
